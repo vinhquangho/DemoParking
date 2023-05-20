@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0592C9A6-963B-440A-B999-DA726D141FBF}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>DemoParking</RootNamespace>
+    <AssemblyName>DemoParking</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework6.Npgsql, Version=6.4.3.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework6.Npgsql.6.4.3\lib\net45\EntityFramework6.Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql, Version=4.0.10.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Npgsql.4.0.10\lib\net45\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard1.1\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.3\lib\netstandard1.1\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard1.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.2\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dtos\EmployeeShift\ViewDto.cs" />
+    <Compile Include="Dtos\Employee\ViewDto.cs" />
+    <Compile Include="Dtos\Global.cs" />
+    <Compile Include="Dtos\InOut\ViewDto.cs" />
+    <Compile Include="Dtos\LoginDto.cs" />
+    <Compile Include="Dtos\SelectDto.cs" />
+    <Compile Include="Dtos\Shift\ViewDto.cs" />
+    <Compile Include="Dtos\Ticket\ViewDto.cs" />
+    <Compile Include="EntityFramework\AppDbContext.cs" />
+    <Compile Include="fEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fEmployee.Designer.cs">
+      <DependentUpon>fEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fEmployeeShift.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fEmployeeShift.Designer.cs">
+      <DependentUpon>fEmployeeShift.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fLogin.Designer.cs">
+      <DependentUpon>fLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fMain.Designer.cs">
+      <DependentUpon>fMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fShift.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fShift.Designer.cs">
+      <DependentUpon>fShift.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fTicket.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fTicket.Designer.cs">
+      <DependentUpon>fTicket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305201012230_init-data.cs" />
+    <Compile Include="Migrations\202305201012230_init-data.designer.cs">
+      <DependentUpon>202305201012230_init-data.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Common.cs" />
+    <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\EmployeeShift.cs" />
+    <Compile Include="Models\InOut.cs" />
+    <Compile Include="Models\Payment.cs" />
+    <Compile Include="Models\Shift.cs" />
+    <Compile Include="Models\Ticket.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\EmployeeService.cs" />
+    <Compile Include="Services\EmployeeShiftService.cs" />
+    <Compile Include="Services\InOutService.cs" />
+    <Compile Include="Services\ShiftService.cs" />
+    <Compile Include="Services\TicketService.cs" />
+    <Compile Include="ucEmployee.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucEmployee.Designer.cs">
+      <DependentUpon>ucEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucHome.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucHome.Designer.cs">
+      <DependentUpon>ucHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucIssue.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucIssue.Designer.cs">
+      <DependentUpon>ucIssue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucPayment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucPayment.Designer.cs">
+      <DependentUpon>ucPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucReport.Designer.cs">
+      <DependentUpon>ucReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucShift.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucShift.Designer.cs">
+      <DependentUpon>ucShift.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucTicket.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucTicket.Designer.cs">
+      <DependentUpon>ucTicket.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="fEmployee.resx">
+      <DependentUpon>fEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fEmployeeShift.resx">
+      <DependentUpon>fEmployeeShift.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fLogin.resx">
+      <DependentUpon>fLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fMain.resx">
+      <DependentUpon>fMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fShift.resx">
+      <DependentUpon>fShift.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fTicket.resx">
+      <DependentUpon>fTicket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305201012230_init-data.resx">
+      <DependentUpon>202305201012230_init-data.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ucEmployee.resx">
+      <DependentUpon>ucEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucHome.resx">
+      <DependentUpon>ucHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucIssue.resx">
+      <DependentUpon>ucIssue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucPayment.resx">
+      <DependentUpon>ucPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucReport.resx">
+      <DependentUpon>ucReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucShift.resx">
+      <DependentUpon>ucShift.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucTicket.resx">
+      <DependentUpon>ucTicket.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>

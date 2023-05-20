@@ -1,0 +1,48 @@
+﻿using DemoParking.Dtos.EmployeeShift;
+using DemoParking.EntityFramework;
+using DemoParking.Models;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace DemoParking.Services
+{
+    public class EmployeeShiftService
+    {
+        private readonly AppDbContext _dbContext;
+        public EmployeeShiftService(AppDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
+        public List<ViewDto> GetByShiftId(int id)
+        {
+            return _dbContext.EmployeeShifts
+                .Where(f => f.ShiftId == id && f.IsDeleted == false)
+                .Select(f => new ViewDto()
+                {
+                    Id = f.Id,
+                    EmployeeName = f.Employee.Name,
+                    ShiftName = f.Shift.Name
+                }).ToList();
+        }
+        public bool Delete(int id)
+        {
+            if (_dbContext.EmployeeShifts.Any(f => f.Id == id))
+            {
+                var model = _dbContext.EmployeeShifts.FirstOrDefault(f => f.Id == id);
+                model.IsDeleted = true;
+                _dbContext.SaveChanges();
+                return true;
+            }
+            return false;
+        }
+        public bool Create(EmployeeShift model)
+        {
+            if (_dbContext.EmployeeShifts.Any(f => f.EmployeeId == model.EmployeeId && f.ShiftId == model.ShiftId && f.IsDeleted == false))
+                return false;
+
+            _dbContext.EmployeeShifts.Add(model);
+            _dbContext.SaveChanges();
+            return true;
+        }
+    }
+}
