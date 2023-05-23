@@ -15,10 +15,6 @@ namespace DemoParking
             {
                 e.Cancel = true;
             }
-            else
-            {
-                Application.Exit();
-            }
         }
 
         private void btnHome_Click(object sender, EventArgs e)

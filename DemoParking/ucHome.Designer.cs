@@ -33,7 +33,7 @@ namespace DemoParking
             this.btnCreate = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dtgMain = new System.Windows.Forms.DataGridView();
-            this.ccbTicket = new System.Windows.Forms.ComboBox();
+            this.ccbTypeTicket = new System.Windows.Forms.ComboBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgMain)).BeginInit();
@@ -68,14 +68,14 @@ namespace DemoParking
             this.dtgMain.TabIndex = 0;
             this.dtgMain.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgMain_CellContentClick);
             // 
-            // ccbTicket
+            // ccbTypeTicket
             // 
-            this.ccbTicket.FormattingEnabled = true;
-            this.ccbTicket.Location = new System.Drawing.Point(462, 10);
-            this.ccbTicket.Name = "ccbTicket";
-            this.ccbTicket.Size = new System.Drawing.Size(104, 21);
-            this.ccbTicket.TabIndex = 17;
-            this.ccbTicket.SelectedIndexChanged += new System.EventHandler(this.ccbTicket_SelectedIndexChanged);
+            this.ccbTypeTicket.FormattingEnabled = true;
+            this.ccbTypeTicket.Location = new System.Drawing.Point(462, 10);
+            this.ccbTypeTicket.Name = "ccbTypeTicket";
+            this.ccbTypeTicket.Size = new System.Drawing.Size(104, 21);
+            this.ccbTypeTicket.TabIndex = 17;
+            this.ccbTypeTicket.SelectedIndexChanged += new System.EventHandler(this.ccbTicket_SelectedIndexChanged);
             // 
             // txtSearch
             // 
@@ -90,7 +90,7 @@ namespace DemoParking
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btnCreate);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.ccbTicket);
+            this.Controls.Add(this.ccbTypeTicket);
             this.Controls.Add(this.txtSearch);
             this.Name = "ucHome";
             this.Size = new System.Drawing.Size(926, 433);
@@ -106,7 +106,7 @@ namespace DemoParking
         private Button btnCreate;
         private Panel panel1;
         private DataGridView dtgMain;
-        private ComboBox ccbTicket;
+        private ComboBox ccbTypeTicket;
         private TextBox txtSearch;
     }
 }

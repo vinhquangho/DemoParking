@@ -13,7 +13,7 @@ namespace DemoParking.Services
         {
             _dbContext = dbContext;
         }
-        public List<ViewDto> GetAll(string text, Status? status)
+        public List<ViewDto> GetAll(string text, Status? status, TypeTicket? typeTicket)
         {
             var query = _dbContext.InOuts.Include("Employee").Where(f => f.IsDeleted == false);
             if (!string.IsNullOrEmpty(text))

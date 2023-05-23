@@ -94,6 +94,12 @@
     <Compile Include="fEmployeeShift.Designer.cs">
       <DependentUpon>fEmployeeShift.cs</DependentUpon>
     </Compile>
+    <Compile Include="fInOut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fInOut.Designer.cs">
+      <DependentUpon>fInOut.cs</DependentUpon>
+    </Compile>
     <Compile Include="fLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -206,6 +212,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fEmployeeShift.resx">
       <DependentUpon>fEmployeeShift.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fInOut.resx">
+      <DependentUpon>fInOut.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fLogin.resx">
       <DependentUpon>fLogin.cs</DependentUpon>

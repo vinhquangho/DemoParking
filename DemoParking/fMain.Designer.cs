@@ -168,6 +168,7 @@ namespace DemoParking
             this.Name = "fMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fMain";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.formClosing);
             this.Load += new System.EventHandler(this.fMain_Load);
             this.panelLeft.ResumeLayout(false);
             this.panelLeft.PerformLayout();
