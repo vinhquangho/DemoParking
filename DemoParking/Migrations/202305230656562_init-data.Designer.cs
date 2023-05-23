@@ -13,7 +13,7 @@ namespace DemoParking.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202305201012230_init-data"; }
+            get { return "202305230656562_init-data"; }
         }
         
         string IMigrationMetadata.Source

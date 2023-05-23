@@ -1,5 +1,6 @@
 ﻿namespace DemoParking.Migrations
 {
+    using DemoParking.Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -14,10 +15,20 @@
 
         protected override void Seed(DemoParking.EntityFramework.AppDbContext context)
         {
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method
-            //  to avoid creating duplicate seed data.
+            context.Employee.AddOrUpdate(x => x.Id, new Employee()
+            {
+                Id = 1,
+                Code = "NV-Admin",
+                Name = "Admin",
+                Address = "An Giang",
+                Phone = "0362998278",
+                Status = Status.Active,
+                UserName = "admin",
+                Password = "123qwe",
+                BirthDay = DateTime.Now,
+                IsDeleted = false,
+                CreationTime = DateTime.Now,
+            });
         }
     }
 }

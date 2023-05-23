@@ -9,7 +9,7 @@ namespace DemoParking
     public partial class fShift : Form
     {
         ShiftService _service = new ShiftService(new AppDbContext());
-        Shift shift = null;
+        Shift shift { get; set; }
         public fShift(int? id)
         {
             InitializeComponent();

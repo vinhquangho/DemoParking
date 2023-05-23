@@ -16,7 +16,8 @@ namespace DemoParking.Services
         }
         public List<ViewDto> GetAll()
         {
-            return _dbContext.Shifts.Where(f => f.IsDeleted == false).Select(f => new ViewDto()
+            var data = _dbContext.Shifts.Where(f => f.IsDeleted == false).ToList();
+            return data.Select(f => new ViewDto()
             {
                 Id = f.Id,
                 Name = f.Name,

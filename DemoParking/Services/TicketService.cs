@@ -17,12 +17,13 @@ namespace DemoParking.Services
         }
         public List<ViewDto> GetAll(string text, TypeTicket? status)
         {
-            var query = _dbContext.Tickets.Where(f => f.IsDeleted == false);
+            var query = _dbContext.Tickets.Include("Employee").Where(f => f.IsDeleted == false);
             if (!string.IsNullOrEmpty(text))
                 query = query.Where(f => f.Code.Contains(text) || f.Name.Contains(text));
             if (status.HasValue)
                 query = query.Where(f => f.TypeTicket == status.Value);
-            return query.Select(f => new ViewDto()
+            var list = query.ToList();
+            return list.Select(f => new ViewDto()
             {
                 Id = f.Id,
                 Code = f.Code,

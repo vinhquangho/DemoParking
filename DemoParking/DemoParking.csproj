@@ -117,9 +117,9 @@
     <Compile Include="fTicket.Designer.cs">
       <DependentUpon>fTicket.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202305201012230_init-data.cs" />
-    <Compile Include="Migrations\202305201012230_init-data.designer.cs">
-      <DependentUpon>202305201012230_init-data.cs</DependentUpon>
+    <Compile Include="Migrations\202305230656562_init-data.cs" />
+    <Compile Include="Migrations\202305230656562_init-data.designer.cs">
+      <DependentUpon>202305230656562_init-data.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Common.cs" />
@@ -196,8 +196,8 @@
     <EmbeddedResource Include="fTicket.resx">
       <DependentUpon>fTicket.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305201012230_init-data.resx">
-      <DependentUpon>202305201012230_init-data.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202305230656562_init-data.resx">
+      <DependentUpon>202305230656562_init-data.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

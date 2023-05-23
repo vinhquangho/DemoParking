@@ -11,7 +11,7 @@ namespace DemoParking
     public partial class fTicket : Form
     {
         private TicketService _service = new TicketService(new AppDbContext());
-        Ticket ticket;
+        Ticket ticket { get; set; }
         public fTicket(int? id)
         {
             InitializeComponent();
@@ -19,14 +19,17 @@ namespace DemoParking
             if (id.HasValue)
             {
                 var model = _service.GetById(id.Value);
-                ticket = model;
-                txtId.Text = model.Id.ToString();
-                txtCode.Text = model.Code;
-                txtName.Text = model.Name;
-                txtPrice.Value = model.Price;
-                dtpEndDate.Value = model.EndDate;
-                dtpStartDate.Value = model.StartDate;
-                ccbTypeTicket.SelectedValue = (int)model.TypeTicket;
+                if(model != null)
+                {
+                    ticket = model;
+                    txtId.Text = model.Id.ToString();
+                    txtCode.Text = model.Code;
+                    txtName.Text = model.Name;
+                    txtPrice.Value = model.Price;
+                    dtpEndDate.Value = model.EndDate;
+                    dtpStartDate.Value = model.StartDate;
+                    ccbTypeTicket.SelectedValue = (int)model.TypeTicket;
+                }
             }
         }
 

@@ -15,14 +15,14 @@ namespace DemoParking.Services
         }
         public List<ViewDto> GetByShiftId(int id)
         {
-            return _dbContext.EmployeeShifts
-                .Where(f => f.ShiftId == id && f.IsDeleted == false)
-                .Select(f => new ViewDto()
-                {
-                    Id = f.Id,
-                    EmployeeName = f.Employee.Name,
-                    ShiftName = f.Shift.Name
-                }).ToList();
+            var data = _dbContext.EmployeeShifts.Include("Employee").Include("Shift")
+                .Where(f => f.ShiftId == id && f.IsDeleted == false).ToList();
+            return data.Select(f => new ViewDto()
+            {
+                Id = f.Id,
+                EmployeeName = f.Employee.Name,
+                ShiftName = f.Shift.Name
+            }).ToList();
         }
         public bool Delete(int id)
         {
