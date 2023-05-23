@@ -140,5 +140,21 @@ namespace DemoParking
                 ucHome.BringToFront();
             }
         }
+
+        private void btnPriceList_Click(object sender, EventArgs e)
+        {
+            var ucPriceList = new ucPriceList();
+            if (!panelRight.Controls.Contains(ucPriceList))
+            {
+                panelRight.Controls.Add(ucPriceList);
+                ucPriceList.Dock = DockStyle.Fill;
+                ucPriceList.BringToFront();
+            }
+            else
+            {
+                ucPriceList.BringToFront();
+            }
+
+        }
     }
 }

@@ -77,6 +77,7 @@
     <Compile Include="Dtos\Global.cs" />
     <Compile Include="Dtos\InOut\ViewDto.cs" />
     <Compile Include="Dtos\LoginDto.cs" />
+    <Compile Include="Dtos\PriceList\ViewDto.cs" />
     <Compile Include="Dtos\SelectDto.cs" />
     <Compile Include="Dtos\Shift\ViewDto.cs" />
     <Compile Include="Dtos\Ticket\ViewDto.cs" />
@@ -105,6 +106,12 @@
     <Compile Include="fMain.Designer.cs">
       <DependentUpon>fMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="fPriceList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fPriceList.Designer.cs">
+      <DependentUpon>fPriceList.cs</DependentUpon>
+    </Compile>
     <Compile Include="fShift.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,12 +128,17 @@
     <Compile Include="Migrations\202305230656562_init-data.designer.cs">
       <DependentUpon>202305230656562_init-data.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202305230822427_add-table-pricelist.cs" />
+    <Compile Include="Migrations\202305230822427_add-table-pricelist.designer.cs">
+      <DependentUpon>202305230822427_add-table-pricelist.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Common.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\EmployeeShift.cs" />
     <Compile Include="Models\InOut.cs" />
     <Compile Include="Models\Payment.cs" />
+    <Compile Include="Models\PriceList.cs" />
     <Compile Include="Models\Shift.cs" />
     <Compile Include="Models\Ticket.cs" />
     <Compile Include="Program.cs" />
@@ -134,6 +146,7 @@
     <Compile Include="Services\EmployeeService.cs" />
     <Compile Include="Services\EmployeeShiftService.cs" />
     <Compile Include="Services\InOutService.cs" />
+    <Compile Include="Services\PriceListService.cs" />
     <Compile Include="Services\ShiftService.cs" />
     <Compile Include="Services\TicketService.cs" />
     <Compile Include="ucEmployee.cs">
@@ -159,6 +172,12 @@
     </Compile>
     <Compile Include="ucPayment.Designer.cs">
       <DependentUpon>ucPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucPriceList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucPriceList.Designer.cs">
+      <DependentUpon>ucPriceList.cs</DependentUpon>
     </Compile>
     <Compile Include="ucReport.cs">
       <SubType>UserControl</SubType>
@@ -190,6 +209,9 @@
     <EmbeddedResource Include="fMain.resx">
       <DependentUpon>fMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="fPriceList.resx">
+      <DependentUpon>fPriceList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fShift.resx">
       <DependentUpon>fShift.cs</DependentUpon>
     </EmbeddedResource>
@@ -198,6 +220,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202305230656562_init-data.resx">
       <DependentUpon>202305230656562_init-data.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305230822427_add-table-pricelist.resx">
+      <DependentUpon>202305230822427_add-table-pricelist.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -219,6 +244,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ucPayment.resx">
       <DependentUpon>ucPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucPriceList.resx">
+      <DependentUpon>ucPriceList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucReport.resx">
       <DependentUpon>ucReport.cs</DependentUpon>
