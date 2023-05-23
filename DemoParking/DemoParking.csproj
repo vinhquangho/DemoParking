@@ -132,6 +132,10 @@
     <Compile Include="Migrations\202305230822427_add-table-pricelist.designer.cs">
       <DependentUpon>202305230822427_add-table-pricelist.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202305231347131_update-table-in-out.cs" />
+    <Compile Include="Migrations\202305231347131_update-table-in-out.designer.cs">
+      <DependentUpon>202305231347131_update-table-in-out.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Common.cs" />
     <Compile Include="Models\Employee.cs" />
@@ -223,6 +227,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202305230822427_add-table-pricelist.resx">
       <DependentUpon>202305230822427_add-table-pricelist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305231347131_update-table-in-out.resx">
+      <DependentUpon>202305231347131_update-table-in-out.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
