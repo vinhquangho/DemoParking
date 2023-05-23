@@ -46,6 +46,7 @@ namespace DemoParking
         // hiển thị danh sách nhân viên lên datagridview
         public void LoadDataGrid(string text, Status? status)
         {
+            _employeeService = new EmployeeService(new AppDbContext());
             var list = _employeeService.GetAll(text, status);
             dtgMain.DataSource = list;
             dtgMain.Columns["Id"].HeaderText = "Id";

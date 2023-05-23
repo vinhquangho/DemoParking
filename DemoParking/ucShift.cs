@@ -29,6 +29,7 @@ namespace DemoParking
         }
         private void LoadData()
         {
+            _service = new ShiftService(new AppDbContext());
             var list = _service.GetAll();
             dtgMain.DataSource = list;
             dtgMain.Columns["Id"].HeaderText = "Id";

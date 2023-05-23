@@ -54,6 +54,7 @@ namespace DemoParking
         }
         public void LoadDataGrid(string text, TypeTicket? status)
         {
+            _service = new TicketService(new AppDbContext());
             var list = _service.GetAll(text, status);
             dtgMain.DataSource = list;
             dtgMain.Columns["Id"].HeaderText = "Id";
