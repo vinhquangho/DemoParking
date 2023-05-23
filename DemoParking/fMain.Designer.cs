@@ -31,6 +31,7 @@ namespace DemoParking
         private void InitializeComponent()
         {
             this.panelLeft = new System.Windows.Forms.Panel();
+            this.btnPriceList = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.BtnIusse = new System.Windows.Forms.Button();
             this.btnReport = new System.Windows.Forms.Button();
@@ -40,7 +41,6 @@ namespace DemoParking
             this.btnEmployee = new System.Windows.Forms.Button();
             this.btnHome = new System.Windows.Forms.Button();
             this.panelRight = new System.Windows.Forms.Panel();
-            this.btnPriceList = new System.Windows.Forms.Button();
             this.panelLeft.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,6 +60,16 @@ namespace DemoParking
             this.panelLeft.Size = new System.Drawing.Size(171, 433);
             this.panelLeft.TabIndex = 0;
             // 
+            // btnPriceList
+            // 
+            this.btnPriceList.Location = new System.Drawing.Point(0, 375);
+            this.btnPriceList.Name = "btnPriceList";
+            this.btnPriceList.Size = new System.Drawing.Size(171, 34);
+            this.btnPriceList.TabIndex = 7;
+            this.btnPriceList.Text = "Phí gửi xe";
+            this.btnPriceList.UseVisualStyleBackColor = true;
+            this.btnPriceList.Click += new System.EventHandler(this.btnPriceList_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -77,7 +87,6 @@ namespace DemoParking
             this.BtnIusse.TabIndex = 6;
             this.BtnIusse.Text = "Sự cố";
             this.BtnIusse.UseVisualStyleBackColor = true;
-            BtnIusse.Click += BtnIusse_Click;
             // 
             // btnReport
             // 
@@ -87,7 +96,6 @@ namespace DemoParking
             this.btnReport.TabIndex = 5;
             this.btnReport.Text = "Báo cáo";
             this.btnReport.UseVisualStyleBackColor = true;
-            btnReport.Click += btnReport_Click;
             // 
             // btnPayment
             // 
@@ -97,7 +105,6 @@ namespace DemoParking
             this.btnPayment.TabIndex = 4;
             this.btnPayment.Text = "Doanh thu";
             this.btnPayment.UseVisualStyleBackColor = true;
-            btnPayment.Click += btnPayment_Click;
             // 
             // btnTicket
             // 
@@ -107,7 +114,6 @@ namespace DemoParking
             this.btnTicket.TabIndex = 3;
             this.btnTicket.Text = "Phiếu tháng";
             this.btnTicket.UseVisualStyleBackColor = true;
-            btnTicket.Click += btnTicket_Click;
             // 
             // btnShift
             // 
@@ -117,7 +123,6 @@ namespace DemoParking
             this.btnShift.TabIndex = 2;
             this.btnShift.Text = "Ca trực";
             this.btnShift.UseVisualStyleBackColor = true;
-            btnShift.Click += btnShift_Click;
             // 
             // btnEmployee
             // 
@@ -127,7 +132,6 @@ namespace DemoParking
             this.btnEmployee.TabIndex = 1;
             this.btnEmployee.Text = "Nhân viên";
             this.btnEmployee.UseVisualStyleBackColor = true;
-            btnEmployee.Click += btnEmployee_Click;
             // 
             // btnHome
             // 
@@ -137,7 +141,6 @@ namespace DemoParking
             this.btnHome.TabIndex = 0;
             this.btnHome.Text = "Trang chủ";
             this.btnHome.UseVisualStyleBackColor = true;
-            btnHome.Click += btnHome_Click;
             // 
             // panelRight
             // 
@@ -145,16 +148,6 @@ namespace DemoParking
             this.panelRight.Name = "panelRight";
             this.panelRight.Size = new System.Drawing.Size(926, 433);
             this.panelRight.TabIndex = 0;
-            // 
-            // btnPriceList
-            // 
-            this.btnPriceList.Location = new System.Drawing.Point(0, 375);
-            this.btnPriceList.Name = "btnPriceList";
-            this.btnPriceList.Size = new System.Drawing.Size(171, 34);
-            this.btnPriceList.TabIndex = 7;
-            this.btnPriceList.Text = "Phí gửi xe";
-            this.btnPriceList.UseVisualStyleBackColor = true;
-            this.btnPriceList.Click += new System.EventHandler(this.btnPriceList_Click);
             // 
             // fMain
             // 
@@ -168,11 +161,11 @@ namespace DemoParking
             this.Name = "fMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fMain";
-            FormClosing += formClosing;
-            Load += fMain_Load;
-            panelLeft.ResumeLayout(false);
-            panelLeft.PerformLayout();
-            ResumeLayout(false);
+            this.Load += new System.EventHandler(this.fMain_Load);
+            this.panelLeft.ResumeLayout(false);
+            this.panelLeft.PerformLayout();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
