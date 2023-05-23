@@ -87,6 +87,7 @@ namespace DemoParking
             this.BtnIusse.TabIndex = 6;
             this.BtnIusse.Text = "Sự cố";
             this.BtnIusse.UseVisualStyleBackColor = true;
+            this.BtnIusse.Click += new System.EventHandler(this.BtnIusse_Click);
             // 
             // btnReport
             // 
@@ -96,6 +97,7 @@ namespace DemoParking
             this.btnReport.TabIndex = 5;
             this.btnReport.Text = "Báo cáo";
             this.btnReport.UseVisualStyleBackColor = true;
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
             // btnPayment
             // 
@@ -105,6 +107,7 @@ namespace DemoParking
             this.btnPayment.TabIndex = 4;
             this.btnPayment.Text = "Doanh thu";
             this.btnPayment.UseVisualStyleBackColor = true;
+            this.btnPayment.Click += new System.EventHandler(this.btnPayment_Click);
             // 
             // btnTicket
             // 
@@ -114,6 +117,7 @@ namespace DemoParking
             this.btnTicket.TabIndex = 3;
             this.btnTicket.Text = "Phiếu tháng";
             this.btnTicket.UseVisualStyleBackColor = true;
+            this.btnTicket.Click += new System.EventHandler(this.btnTicket_Click);
             // 
             // btnShift
             // 
@@ -123,6 +127,7 @@ namespace DemoParking
             this.btnShift.TabIndex = 2;
             this.btnShift.Text = "Ca trực";
             this.btnShift.UseVisualStyleBackColor = true;
+            this.btnShift.Click += new System.EventHandler(this.btnShift_Click);
             // 
             // btnEmployee
             // 
@@ -132,6 +137,7 @@ namespace DemoParking
             this.btnEmployee.TabIndex = 1;
             this.btnEmployee.Text = "Nhân viên";
             this.btnEmployee.UseVisualStyleBackColor = true;
+            this.btnEmployee.Click += new System.EventHandler(this.btnEmployee_Click);
             // 
             // btnHome
             // 
@@ -141,6 +147,7 @@ namespace DemoParking
             this.btnHome.TabIndex = 0;
             this.btnHome.Text = "Trang chủ";
             this.btnHome.UseVisualStyleBackColor = true;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
             // panelRight
             // 
