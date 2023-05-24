@@ -30,80 +30,81 @@ namespace DemoParking
         /// </summary>
         private void InitializeComponent()
         {
-            panel1 = new Panel();
-            btnCreate = new Button();
-            textBox1 = new TextBox();
-            comboBox1 = new ComboBox();
-            dtgMain = new DataGridView();
-            panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dtgMain).BeginInit();
-            SuspendLayout();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.dtgMain = new System.Windows.Forms.DataGridView();
+            this.dtpTo = new System.Windows.Forms.DateTimePicker();
+            this.dtpFrom = new System.Windows.Forms.DateTimePicker();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgMain)).BeginInit();
+            this.SuspendLayout();
             // 
             // panel1
             // 
-            panel1.Controls.Add(dtgMain);
-            panel1.Location = new Point(3, 62);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(1074, 435);
-            panel1.TabIndex = 0;
-            // 
-            // btnCreate
-            // 
-            btnCreate.Location = new Point(3, 21);
-            btnCreate.Name = "btnCreate";
-            btnCreate.Size = new Size(130, 23);
-            btnCreate.TabIndex = 1;
-            btnCreate.Text = "Tạo";
-            btnCreate.UseVisualStyleBackColor = true;
-            btnCreate.Click += btnCreate_Click;
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(139, 21);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(367, 23);
-            textBox1.TabIndex = 2;
-            // 
-            // comboBox1
-            // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(526, 21);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(121, 23);
-            comboBox1.TabIndex = 3;
+            this.panel1.Controls.Add(this.dtgMain);
+            this.panel1.Location = new System.Drawing.Point(3, 54);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(921, 377);
+            this.panel1.TabIndex = 0;
             // 
             // dtgMain
             // 
-            dtgMain.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgMain.Dock = DockStyle.Fill;
-            dtgMain.Location = new Point(0, 0);
-            dtgMain.Name = "dtgMain";
-            dtgMain.RowTemplate.Height = 25;
-            dtgMain.Size = new Size(1074, 435);
-            dtgMain.TabIndex = 0;
+            this.dtgMain.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtgMain.Location = new System.Drawing.Point(0, 0);
+            this.dtgMain.Name = "dtgMain";
+            this.dtgMain.RowTemplate.Height = 25;
+            this.dtgMain.Size = new System.Drawing.Size(921, 377);
+            this.dtgMain.TabIndex = 0;
+            // 
+            // dtpTo
+            // 
+            this.dtpTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpTo.Location = new System.Drawing.Point(322, 20);
+            this.dtpTo.Name = "dtpTo";
+            this.dtpTo.Size = new System.Drawing.Size(200, 20);
+            this.dtpTo.TabIndex = 1;
+            // 
+            // dtpFrom
+            // 
+            this.dtpFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFrom.Location = new System.Drawing.Point(101, 20);
+            this.dtpFrom.Name = "dtpFrom";
+            this.dtpFrom.Size = new System.Drawing.Size(200, 20);
+            this.dtpFrom.TabIndex = 2;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(548, 20);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(74, 20);
+            this.btnSearch.TabIndex = 3;
+            this.btnSearch.Text = "Tìm";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // ucPayment
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(comboBox1);
-            Controls.Add(textBox1);
-            Controls.Add(btnCreate);
-            Controls.Add(panel1);
-            Name = "ucPayment";
-            Size = new Size(1080, 500);
-            panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dtgMain).EndInit();
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.dtpFrom);
+            this.Controls.Add(this.dtpTo);
+            this.Controls.Add(this.panel1);
+            this.Name = "ucPayment";
+            this.Size = new System.Drawing.Size(926, 433);
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgMain)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
 
         private Panel panel1;
         private DataGridView dtgMain;
-        private Button btnCreate;
-        private TextBox textBox1;
-        private ComboBox comboBox1;
+        private DateTimePicker dtpTo;
+        private DateTimePicker dtpFrom;
+        private Button btnSearch;
     }
 }

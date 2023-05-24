@@ -77,6 +77,7 @@
     <Compile Include="Dtos\Global.cs" />
     <Compile Include="Dtos\InOut\ViewDto.cs" />
     <Compile Include="Dtos\LoginDto.cs" />
+    <Compile Include="Dtos\Payment\ViewDto.cs" />
     <Compile Include="Dtos\PriceList\ViewDto.cs" />
     <Compile Include="Dtos\SelectDto.cs" />
     <Compile Include="Dtos\Shift\ViewDto.cs" />
@@ -111,6 +112,12 @@
     </Compile>
     <Compile Include="fMain.Designer.cs">
       <DependentUpon>fMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fPayment.Designer.cs">
+      <DependentUpon>fPayment.cs</DependentUpon>
     </Compile>
     <Compile Include="fPriceList.cs">
       <SubType>Form</SubType>
@@ -156,6 +163,7 @@
     <Compile Include="Services\EmployeeService.cs" />
     <Compile Include="Services\EmployeeShiftService.cs" />
     <Compile Include="Services\InOutService.cs" />
+    <Compile Include="Services\PaymentService.cs" />
     <Compile Include="Services\PriceListService.cs" />
     <Compile Include="Services\ShiftService.cs" />
     <Compile Include="Services\TicketService.cs" />
@@ -221,6 +229,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fMain.resx">
       <DependentUpon>fMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fPayment.resx">
+      <DependentUpon>fPayment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fPriceList.resx">
       <DependentUpon>fPriceList.cs</DependentUpon>

@@ -83,6 +83,7 @@ namespace DemoParking
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(315, 20);
             this.txtSearch.TabIndex = 16;
+            this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyDown);
             // 
             // ucHome
             // 

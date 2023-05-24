@@ -43,7 +43,7 @@ namespace DemoParking.Services
         // đăng nhập nhân viên
         public Employee FindEmployeeByLogin(LoginDto dto)
         {
-            var result = _dbContext.Employee.FirstOrDefault(f => f.UserName == dto.UserName && f.Password == dto.Password);
+            var result = _dbContext.Employee.FirstOrDefault(f => f.UserName == dto.UserName && f.Password == dto.Password && f.Status == Status.Active && f.IsDeleted == false);
             if (result != null)
                 Global.EmployeeId = result.Id;
             return result;

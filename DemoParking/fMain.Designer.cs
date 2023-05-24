@@ -34,7 +34,6 @@ namespace DemoParking
             this.btnPriceList = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.BtnIusse = new System.Windows.Forms.Button();
-            this.btnReport = new System.Windows.Forms.Button();
             this.btnPayment = new System.Windows.Forms.Button();
             this.btnTicket = new System.Windows.Forms.Button();
             this.btnShift = new System.Windows.Forms.Button();
@@ -49,7 +48,6 @@ namespace DemoParking
             this.panelLeft.Controls.Add(this.btnPriceList);
             this.panelLeft.Controls.Add(this.label1);
             this.panelLeft.Controls.Add(this.BtnIusse);
-            this.panelLeft.Controls.Add(this.btnReport);
             this.panelLeft.Controls.Add(this.btnPayment);
             this.panelLeft.Controls.Add(this.btnTicket);
             this.panelLeft.Controls.Add(this.btnShift);
@@ -62,7 +60,7 @@ namespace DemoParking
             // 
             // btnPriceList
             // 
-            this.btnPriceList.Location = new System.Drawing.Point(0, 375);
+            this.btnPriceList.Location = new System.Drawing.Point(0, 335);
             this.btnPriceList.Name = "btnPriceList";
             this.btnPriceList.Size = new System.Drawing.Size(171, 34);
             this.btnPriceList.TabIndex = 7;
@@ -81,23 +79,13 @@ namespace DemoParking
             // 
             // BtnIusse
             // 
-            this.BtnIusse.Location = new System.Drawing.Point(0, 335);
+            this.BtnIusse.Location = new System.Drawing.Point(0, 295);
             this.BtnIusse.Name = "BtnIusse";
             this.BtnIusse.Size = new System.Drawing.Size(171, 34);
             this.BtnIusse.TabIndex = 6;
             this.BtnIusse.Text = "Sự cố";
             this.BtnIusse.UseVisualStyleBackColor = true;
             this.BtnIusse.Click += new System.EventHandler(this.BtnIusse_Click);
-            // 
-            // btnReport
-            // 
-            this.btnReport.Location = new System.Drawing.Point(0, 295);
-            this.btnReport.Name = "btnReport";
-            this.btnReport.Size = new System.Drawing.Size(171, 34);
-            this.btnReport.TabIndex = 5;
-            this.btnReport.Text = "Báo cáo";
-            this.btnReport.UseVisualStyleBackColor = true;
-            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
             // btnPayment
             // 
@@ -182,7 +170,6 @@ namespace DemoParking
         private Panel panelRight;
         private Button btnHome;
         private Button BtnIusse;
-        private Button btnReport;
         private Button btnPayment;
         private Button btnTicket;
         private Button btnShift;
