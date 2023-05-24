@@ -76,6 +76,7 @@
     <Compile Include="Dtos\Employee\ViewDto.cs" />
     <Compile Include="Dtos\Global.cs" />
     <Compile Include="Dtos\InOut\ViewDto.cs" />
+    <Compile Include="Dtos\Issue\ViewDto.cs" />
     <Compile Include="Dtos\LoginDto.cs" />
     <Compile Include="Dtos\Payment\ViewDto.cs" />
     <Compile Include="Dtos\PriceList\ViewDto.cs" />
@@ -100,6 +101,12 @@
     </Compile>
     <Compile Include="fInOut.Designer.cs">
       <DependentUpon>fInOut.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fIssue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fIssue.Designer.cs">
+      <DependentUpon>fIssue.cs</DependentUpon>
     </Compile>
     <Compile Include="fLogin.cs">
       <SubType>Form</SubType>
@@ -149,11 +156,16 @@
     <Compile Include="Migrations\202305231347131_update-table-in-out.designer.cs">
       <DependentUpon>202305231347131_update-table-in-out.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202305240929212_add-table-issue.cs" />
+    <Compile Include="Migrations\202305240929212_add-table-issue.designer.cs">
+      <DependentUpon>202305240929212_add-table-issue.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Common.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\EmployeeShift.cs" />
     <Compile Include="Models\InOut.cs" />
+    <Compile Include="Models\Issue.cs" />
     <Compile Include="Models\Payment.cs" />
     <Compile Include="Models\PriceList.cs" />
     <Compile Include="Models\Shift.cs" />
@@ -163,6 +175,7 @@
     <Compile Include="Services\EmployeeService.cs" />
     <Compile Include="Services\EmployeeShiftService.cs" />
     <Compile Include="Services\InOutService.cs" />
+    <Compile Include="Services\IssueService.cs" />
     <Compile Include="Services\PaymentService.cs" />
     <Compile Include="Services\PriceListService.cs" />
     <Compile Include="Services\ShiftService.cs" />
@@ -224,6 +237,9 @@
     <EmbeddedResource Include="fInOut.resx">
       <DependentUpon>fInOut.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="fIssue.resx">
+      <DependentUpon>fIssue.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fLogin.resx">
       <DependentUpon>fLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -250,6 +266,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202305231347131_update-table-in-out.resx">
       <DependentUpon>202305231347131_update-table-in-out.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305240929212_add-table-issue.resx">
+      <DependentUpon>202305240929212_add-table-issue.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
