@@ -19,7 +19,7 @@ namespace DemoParking.Services
         }
         public List<ViewDto> GetAll()
         {
-            var data = _dbContext.PriceLists.Where(f => f.IsDeleted == false).ToList();
+            var data = _dbContext.PriceLists.ToList();
             return data.Select(f => new ViewDto()
             {
                 Id = f.Id,
@@ -38,7 +38,7 @@ namespace DemoParking.Services
             if (_dbContext.PriceLists.Any(f => f.Id == id))
             {
                 var model = _dbContext.PriceLists.FirstOrDefault(f => f.Id == id);
-                model.IsDeleted = true;
+                _dbContext.PriceLists.Remove(model);
                 _dbContext.SaveChanges();
                 return true;
             }

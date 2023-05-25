@@ -20,7 +20,7 @@ namespace DemoParking.Services
         }
         public List<ViewDto> GetAll(string text)
         {
-            var query = _dbContext.Issues.Include("Employee").Where(f => f.IsDeleted == false);
+            var query = _dbContext.Issues.Include("Employee").AsQueryable();
             if (!string.IsNullOrEmpty(text))
                 query = query.Where(f => f.Code.Contains(text));
             var list = query.ToList();
@@ -49,7 +49,7 @@ namespace DemoParking.Services
         }
         public List<SelectDto> GetCode()
         {
-            var inout = _dbContext.InOuts.Where(f => f.IsDeleted == false && f.Status == Models.Status.Active).ToList();
+            var inout = _dbContext.InOuts.Where(f => f.Status == Models.Status.Active).ToList();
             return inout.Select(f => new SelectDto() { Id = f.Id, Name = f.Code }).ToList();
         }
     }

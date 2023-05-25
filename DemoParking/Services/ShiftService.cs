@@ -16,7 +16,7 @@ namespace DemoParking.Services
         }
         public List<ViewDto> GetAll()
         {
-            var data = _dbContext.Shifts.Where(f => f.IsDeleted == false).ToList();
+            var data = _dbContext.Shifts.ToList();
             return data.Select(f => new ViewDto()
             {
                 Id = f.Id,
@@ -35,7 +35,7 @@ namespace DemoParking.Services
             if (_dbContext.Shifts.Any(f => f.Id == id))
             {
                 var model = _dbContext.Shifts.FirstOrDefault(f => f.Id == id);
-                model.IsDeleted = true;
+                _dbContext.Shifts.Remove(model);
                 _dbContext.SaveChanges();
                 return true;
             }
@@ -63,7 +63,7 @@ namespace DemoParking.Services
         }
         public List<SelectDto> GetForCobobox()
         {
-            return _dbContext.Shifts.Where(f => f.IsDeleted == false).Select(f => new SelectDto() { Id = f.Id, Name = f.Name }).ToList();
+            return _dbContext.Shifts.Select(f => new SelectDto() { Id = f.Id, Name = f.Name }).ToList();
         }
     }
 }

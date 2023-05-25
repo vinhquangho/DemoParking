@@ -17,7 +17,7 @@ namespace DemoParking.Services
         }
         public List<ViewDto> GetAll(string text, TypeTicket? status)
         {
-            var query = _dbContext.Tickets.Include("Employee").Where(f => f.IsDeleted == false);
+            var query = _dbContext.Tickets.Include("Employee").AsQueryable();
             if (!string.IsNullOrEmpty(text))
                 query = query.Where(f => f.Code.Contains(text) || f.Name.Contains(text));
             if (status.HasValue)
@@ -45,7 +45,7 @@ namespace DemoParking.Services
             if (_dbContext.Tickets.Any(f => f.Id == id))
             {
                 var model = _dbContext.Tickets.FirstOrDefault(f => f.Id == id);
-                model.IsDeleted = true;
+                _dbContext.Tickets.Remove(model);
                 _dbContext.SaveChanges();
                 return true;
             }

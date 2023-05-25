@@ -107,7 +107,6 @@ namespace DemoParking
                 if (!string.IsNullOrEmpty(txtId.Text)) // nếu id có giá trị nó là cập nhật
                 {
                     model.Id = int.Parse(txtId.Text);
-                    model.IsDeleted = employee.IsDeleted;
                     model.CreationTime = employee.CreationTime;
                     var result = _employeeService.Update(model);
                     if (!result)

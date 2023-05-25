@@ -23,7 +23,7 @@ namespace DemoParking.Services
 
         public List<ViewDto> GetAll(DateTime dateFrom, DateTime dateTo)
         {
-            var query = _dbContext.Payments.Include("Employee").Where(f => f.IsDeleted == false && f.CreationTime >= dateFrom.Date && f.CreationTime <= dateTo.Date);
+            var query = _dbContext.Payments.Include("Employee").Where(f => f.CreationTime >= dateFrom.Date && f.CreationTime <= dateTo.Date);
             
             var list = query.ToList();
             return list.Select(f => new ViewDto()

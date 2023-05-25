@@ -16,7 +16,7 @@ namespace DemoParking.Services
         public List<ViewDto> GetByShiftId(int id)
         {
             var data = _dbContext.EmployeeShifts.Include("Employee").Include("Shift")
-                .Where(f => f.ShiftId == id && f.IsDeleted == false).ToList();
+                .Where(f => f.ShiftId == id).ToList();
             return data.Select(f => new ViewDto()
             {
                 Id = f.Id,
@@ -29,7 +29,7 @@ namespace DemoParking.Services
             if (_dbContext.EmployeeShifts.Any(f => f.Id == id))
             {
                 var model = _dbContext.EmployeeShifts.FirstOrDefault(f => f.Id == id);
-                model.IsDeleted = true;
+                _dbContext.EmployeeShifts.Remove(model);
                 _dbContext.SaveChanges();
                 return true;
             }
@@ -37,7 +37,7 @@ namespace DemoParking.Services
         }
         public bool Create(EmployeeShift model)
         {
-            if (_dbContext.EmployeeShifts.Any(f => f.EmployeeId == model.EmployeeId && f.ShiftId == model.ShiftId && f.IsDeleted == false))
+            if (_dbContext.EmployeeShifts.Any(f => f.EmployeeId == model.EmployeeId && f.ShiftId == model.ShiftId))
                 return false;
 
             _dbContext.EmployeeShifts.Add(model);

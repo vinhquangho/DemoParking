@@ -18,7 +18,7 @@ namespace DemoParking.Services
         }
         public List<ViewDto> GetAll(string text, Status? status, TypeTicket? typeTicket)
         {
-            var query = _dbContext.InOuts.Include("Employee").Where(f => f.IsDeleted == false && f.Status == Status.Active);
+            var query = _dbContext.InOuts.Include("Employee").Where(f => f.Status == Status.Active);
             if (!string.IsNullOrEmpty(text))
                 query = query.Where(f => f.Code.Contains(text));
             if (status.HasValue)
@@ -46,7 +46,7 @@ namespace DemoParking.Services
             if (_dbContext.InOuts.Any(f => f.Id == id))
             {
                 var model = _dbContext.InOuts.FirstOrDefault(f => f.Id == id);
-                model.IsDeleted = true;
+                _dbContext.InOuts.Remove(model);
                 _dbContext.SaveChanges();
                 return true;
             }
@@ -54,10 +54,10 @@ namespace DemoParking.Services
         }
         public bool Create(InOut model)
         {
-            if (_dbContext.InOuts.Any(f => f.Code == model.Code && f.Status == Status.Active && f.IsDeleted == false))
+            if (_dbContext.InOuts.Any(f => f.Code == model.Code && f.Status == Status.Active))
                 return false;
 
-            var ticket = _dbContext.Tickets.FirstOrDefault(f => f.IsDeleted == false && f.Code == model.Code);
+            var ticket = _dbContext.Tickets.FirstOrDefault(f => f.Code == model.Code);
             if(ticket != null && ticket.EndDate.Date >= DateTime.Now.Date)
             {
                 model.IsTicket = true;
@@ -70,7 +70,7 @@ namespace DemoParking.Services
         }
         public decimal GetPaymentByTicketType(TypeTicket typeTicket)
         {
-            var priceList = _dbContext.PriceLists.FirstOrDefault(f => f.TypeTicket == typeTicket && f.DateOut.Hour > DateTime.Now.Hour && f.IsDeleted == false);
+            var priceList = _dbContext.PriceLists.FirstOrDefault(f => f.TypeTicket == typeTicket && f.DateOut.Hour > DateTime.Now.Hour);
             return priceList == null ? 0 : priceList.Price;
         }
         public void UpdateInOut(int id)

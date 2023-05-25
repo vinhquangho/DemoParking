@@ -26,7 +26,6 @@
                 UserName = "admin",
                 Password = "123qwe",
                 BirthDay = DateTime.Now,
-                IsDeleted = false,
                 CreationTime = DateTime.Now,
             });
         }

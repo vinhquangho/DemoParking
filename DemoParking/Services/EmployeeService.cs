@@ -18,7 +18,7 @@ namespace DemoParking.Services
         // lấy danh sách nhân viên với điều kiện name hoặc code và trạng thái
         public List<ViewDto> GetAll(string text, Status? status)
         {
-            var query = _dbContext.Employee.Where(f => f.IsDeleted == false);
+            var query = _dbContext.Employee.AsQueryable();
             if (!string.IsNullOrEmpty(text))
                 query = query.Where(f => f.Code.Contains(text) || f.Name.Contains(text));
             if (status.HasValue)
@@ -43,7 +43,7 @@ namespace DemoParking.Services
         // đăng nhập nhân viên
         public Employee FindEmployeeByLogin(LoginDto dto)
         {
-            var result = _dbContext.Employee.FirstOrDefault(f => f.UserName == dto.UserName && f.Password == dto.Password && f.Status == Status.Active && f.IsDeleted == false);
+            var result = _dbContext.Employee.FirstOrDefault(f => f.UserName == dto.UserName && f.Password == dto.Password && f.Status == Status.Active);
             if (result != null)
                 Global.EmployeeId = result.Id;
             return result;
@@ -69,7 +69,7 @@ namespace DemoParking.Services
             if (_dbContext.Employee.Any(f => f.Id == id))
             {
                 var model = _dbContext.Employee.FirstOrDefault(f => f.Id == id);
-                model.IsDeleted = true;
+                _dbContext.Employee.Remove(model);
                 _dbContext.SaveChanges();
                 return true;
             }
@@ -106,7 +106,7 @@ namespace DemoParking.Services
         }
         public List<SelectDto> GetForCombobox()
         {
-            return _dbContext.Employee.Where(f => f.IsDeleted == false).Select(f => new SelectDto() { Id = f.Id, Name = f.Name }).ToList();
+            return _dbContext.Employee.Select(f => new SelectDto() { Id = f.Id, Name = f.Name }).ToList();
         }
     }
 }
