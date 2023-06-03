@@ -92,7 +92,9 @@ namespace DemoParking
             dtgMain.Columns["Id"].HeaderText = "Id";
             dtgMain.Columns["Code"].HeaderText = "Biển số xe";
             dtgMain.Columns["DateIn"].HeaderText = "Ngày bất đầu";
+            dtgMain.Columns["DateIn"].DefaultCellStyle.Format = "dd/MM/yyyy hh:ss";
             dtgMain.Columns["DateOut"].HeaderText = "Ngày kết thúc";
+            dtgMain.Columns["DateOut"].DefaultCellStyle.Format = "dd/MM/yyyy hh:ss";
             dtgMain.Columns["IsTicket"].HeaderText = "Vé tháng";
             dtgMain.Columns["Status"].HeaderText = "Trạng thái";
             dtgMain.Columns["EmployeeName"].HeaderText = "Nhân viên tạo";
