@@ -16,6 +16,7 @@ namespace DemoParking
         {
             InitializeComponent();
             LoadComboboxTypeTicket();
+            LoadComboboxStatus();
             LoadData(string.Empty, null, null);
         }
 
@@ -34,7 +35,16 @@ namespace DemoParking
         {
             try
             {
-                LoadData(txtSearch.Text, null, (TypeTicket)ccbTypeTicket.SelectedValue);
+                Status? status = null;
+                TypeTicket? typeTicke = null;
+
+                if (cbbStatus.SelectedValue != null)
+                    status = (Status?)cbbStatus.SelectedValue;
+
+                if (ccbTypeTicket.SelectedValue != null)
+                    typeTicke = (TypeTicket?)ccbTypeTicket.SelectedValue;
+
+                LoadData(txtSearch.Text, status, typeTicke);
             }
             catch (Exception ex)
             {
@@ -74,6 +84,8 @@ namespace DemoParking
         }
         private void LoadData(string text, Status? status, TypeTicket? typeTicket)
         {
+            status = status == 0 ? null : status;
+            typeTicket = typeTicket == 0 ? null : typeTicket;
             _service = new InOutService(new AppDbContext());
             var list = _service.GetAll(text, status, typeTicket);
             dtgMain.DataSource = list;
@@ -112,6 +124,7 @@ namespace DemoParking
         {
             var result = new List<SelectDto>()
             {
+                new SelectDto(){ Id = 0, Name = "--Chọn loại xe--"},
                 new SelectDto(){ Id = 1, Name = "Xe Đạp" },
                 new SelectDto(){ Id = 2, Name = "2 bánh" },
                 new SelectDto(){ Id = 3, Name = "4 bánh" },
@@ -122,13 +135,40 @@ namespace DemoParking
             ccbTypeTicket.DisplayMember = "Name";
             ccbTypeTicket.ValueMember = "Id";
         }
+        private void LoadComboboxStatus()
+        {
+            var result = new List<SelectDto>()
+            {
+                new SelectDto(){ Id = 0, Name = "--Chọn trạng thái--"},
+                new SelectDto(){ Id = 2, Name = "Đã lấy xe" },
+                new SelectDto(){ Id = 1, Name = "Chưa lấy xe" },
+            };
+            cbbStatus.DataSource = result;
+            cbbStatus.DisplayMember = "Name";
+            cbbStatus.ValueMember = "Id";
+        }
 
         private void txtSearch_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                var selectType = (TypeTicket)ccbTypeTicket.SelectedValue;
-                LoadData(txtSearch.Text, null, selectType);
+                var status = (Status)int.Parse(cbbStatus.SelectedValue.ToString());
+                var typeTicket = (TypeTicket)int.Parse(ccbTypeTicket.SelectedValue.ToString());
+                LoadData(txtSearch.Text, status, typeTicket);
+            }
+        }
+
+        private void cbbStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                var status = (Status)int.Parse(cbbStatus.SelectedValue.ToString());
+                var typeTicket = (TypeTicket)int.Parse(ccbTypeTicket.SelectedValue.ToString());
+                LoadData(txtSearch.Text, status, typeTicket);
+            }
+            catch (Exception ex)
+            {
+                LoadData(string.Empty, null, null);
             }
         }
     }

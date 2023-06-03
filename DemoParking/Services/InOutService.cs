@@ -18,7 +18,7 @@ namespace DemoParking.Services
         }
         public List<ViewDto> GetAll(string text, Status? status, TypeTicket? typeTicket)
         {
-            var query = _dbContext.InOuts.Include("Employee").Where(f => f.Status == Status.Active);
+            var query = _dbContext.InOuts.Include("Employee").AsQueryable();
             if (!string.IsNullOrEmpty(text))
                 query = query.Where(f => f.Code.Contains(text));
             if (status.HasValue)
