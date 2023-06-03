@@ -35,6 +35,7 @@ namespace DemoParking
             this.dtpTo = new System.Windows.Forms.DateTimePicker();
             this.dtpFrom = new System.Windows.Forms.DateTimePicker();
             this.btnSearch = new System.Windows.Forms.Button();
+            this.cbbTicketMonth = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgMain)).BeginInit();
             this.SuspendLayout();
@@ -60,7 +61,7 @@ namespace DemoParking
             // dtpTo
             // 
             this.dtpTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpTo.Location = new System.Drawing.Point(322, 20);
+            this.dtpTo.Location = new System.Drawing.Point(209, 20);
             this.dtpTo.Name = "dtpTo";
             this.dtpTo.Size = new System.Drawing.Size(200, 20);
             this.dtpTo.TabIndex = 1;
@@ -68,14 +69,14 @@ namespace DemoParking
             // dtpFrom
             // 
             this.dtpFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFrom.Location = new System.Drawing.Point(101, 20);
+            this.dtpFrom.Location = new System.Drawing.Point(3, 20);
             this.dtpFrom.Name = "dtpFrom";
             this.dtpFrom.Size = new System.Drawing.Size(200, 20);
             this.dtpFrom.TabIndex = 2;
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(548, 20);
+            this.btnSearch.Location = new System.Drawing.Point(621, 20);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(74, 20);
             this.btnSearch.TabIndex = 3;
@@ -83,10 +84,19 @@ namespace DemoParking
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
+            // cbbTicketMonth
+            // 
+            this.cbbTicketMonth.FormattingEnabled = true;
+            this.cbbTicketMonth.Location = new System.Drawing.Point(415, 19);
+            this.cbbTicketMonth.Name = "cbbTicketMonth";
+            this.cbbTicketMonth.Size = new System.Drawing.Size(200, 21);
+            this.cbbTicketMonth.TabIndex = 1;
+            // 
             // ucPayment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.cbbTicketMonth);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.dtpFrom);
             this.Controls.Add(this.dtpTo);
@@ -106,5 +116,6 @@ namespace DemoParking
         private DateTimePicker dtpTo;
         private DateTimePicker dtpFrom;
         private Button btnSearch;
+        private ComboBox cbbTicketMonth;
     }
 }

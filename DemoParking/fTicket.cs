@@ -11,6 +11,7 @@ namespace DemoParking
     public partial class fTicket : Form
     {
         private TicketService _service = new TicketService(new AppDbContext());
+        private InOutService _inOutService = new InOutService(new AppDbContext());
         Ticket ticket { get; set; }
         public fTicket(int? id)
         {
@@ -45,6 +46,7 @@ namespace DemoParking
                 EmployeeId = Global.EmployeeId,
                 TypeTicket = (TypeTicket)ccbTypeTicket.SelectedValue
             };
+            _inOutService.CreatePayment(new Payment() { Code = model.Code, Price = model.Price, EmployeeId = Global.EmployeeId, isTicketMonth = true });
             if (!string.IsNullOrEmpty(txtId.Text))
             {
                 model.Id = int.Parse(txtId.Text);

@@ -12,6 +12,6 @@ namespace DemoParking.Dtos.Payment
         public decimal Price { get; set; }
         public string EmployeeName { get; set; }
         public DateTime CreationTime { get; set; }
-
+        public bool IsTicketMonth { get; set; }
     }
 }
