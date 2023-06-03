@@ -17,7 +17,7 @@ namespace DemoParking
             InitializeComponent();
             LoadComboboxTypeTicket();
             LoadComboboxStatus();
-            LoadData(string.Empty, null, null);
+            LoadData(string.Empty, null, null, DateTime.Now, DateTime.Now.AddMonths(1));
         }
 
         private void btnCreate_Click(object sender, System.EventArgs e)
@@ -28,7 +28,7 @@ namespace DemoParking
         }
         private void formClosing(object sender, FormClosingEventArgs args)
         {
-            LoadData(string.Empty, null, null);
+            LoadData(string.Empty, null, null, DateTime.Now, DateTime.Now.AddMonths(1));
         }
 
         private void ccbTicket_SelectedIndexChanged(object sender, System.EventArgs e)
@@ -44,11 +44,11 @@ namespace DemoParking
                 if (ccbTypeTicket.SelectedValue != null)
                     typeTicke = (TypeTicket?)ccbTypeTicket.SelectedValue;
 
-                LoadData(txtSearch.Text, status, typeTicke);
+                LoadData(txtSearch.Text, status, typeTicke, dtpDateIn.Value, dtpDateOut.Value);
             }
             catch (Exception ex)
             {
-                LoadData(string.Empty, null, null);
+                LoadData(string.Empty, null, null, DateTime.Now, DateTime.Now.AddMonths(1));
             }
         }
 
@@ -63,7 +63,7 @@ namespace DemoParking
                     if (data.IsTicket)
                     {
                         _service.UpdateInOut(data.Id);
-                        LoadData(string.Empty, null, null);
+                        LoadData(string.Empty, null, null, DateTime.Now, DateTime.Now.AddMonths(1));
                     }
                     else
                     {
@@ -76,18 +76,18 @@ namespace DemoParking
                 case "btnDelete":
                     var textDelete = _service.Delete(data.Id) == true ? "Xóa phiếu thành công" : "Xóa phiếu thất bại";
                     MessageBox.Show(textDelete, "Thông báo");
-                    LoadData(string.Empty, null, null);
+                    LoadData(string.Empty, null, null, DateTime.Now, DateTime.Now.AddMonths(1));
                     break;
                 default:
                     break;
             }
         }
-        private void LoadData(string text, Status? status, TypeTicket? typeTicket)
+        private void LoadData(string text, Status? status, TypeTicket? typeTicket, DateTime dateIn, DateTime dateOut)
         {
             status = status == 0 ? null : status;
             typeTicket = typeTicket == 0 ? null : typeTicket;
             _service = new InOutService(new AppDbContext());
-            var list = _service.GetAll(text, status, typeTicket);
+            var list = _service.GetAll(text, status, typeTicket, dateIn, dateOut);
             dtgMain.DataSource = list;
             dtgMain.Columns["Id"].HeaderText = "Id";
             dtgMain.Columns["Code"].HeaderText = "Biển số xe";
@@ -128,10 +128,9 @@ namespace DemoParking
             {
                 new SelectDto(){ Id = 0, Name = "--Chọn loại xe--"},
                 new SelectDto(){ Id = 1, Name = "Xe Đạp" },
-                new SelectDto(){ Id = 2, Name = "2 bánh" },
-                new SelectDto(){ Id = 3, Name = "4 bánh" },
-                new SelectDto(){ Id = 4, Name = "8 bánh" },
-                new SelectDto(){ Id = 5, Name = "16 bánh" },
+                new SelectDto(){ Id = 2, Name = "Xe gắn máy" },
+                new SelectDto(){ Id = 3, Name = "Xe Ô tô" },
+                new SelectDto(){ Id = 4, Name = "Xe bus" },
             };
             ccbTypeTicket.DataSource = result;
             ccbTypeTicket.DisplayMember = "Name";
@@ -156,7 +155,7 @@ namespace DemoParking
             {
                 var status = (Status)int.Parse(cbbStatus.SelectedValue.ToString());
                 var typeTicket = (TypeTicket)int.Parse(ccbTypeTicket.SelectedValue.ToString());
-                LoadData(txtSearch.Text, status, typeTicket);
+                LoadData(txtSearch.Text, status, typeTicket, dtpDateIn.Value, dtpDateOut.Value);
             }
         }
 
@@ -166,11 +165,40 @@ namespace DemoParking
             {
                 var status = (Status)int.Parse(cbbStatus.SelectedValue.ToString());
                 var typeTicket = (TypeTicket)int.Parse(ccbTypeTicket.SelectedValue.ToString());
-                LoadData(txtSearch.Text, status, typeTicket);
+                LoadData(txtSearch.Text, status, typeTicket, dtpDateIn.Value, dtpDateOut.Value);
             }
             catch (Exception ex)
             {
-                LoadData(string.Empty, null, null);
+                LoadData(string.Empty, null, null, DateTime.Now, DateTime.Now.AddMonths(1));
+            }
+        }
+
+        private void dtpDateIn_ValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                var status = (Status)int.Parse(cbbStatus.SelectedValue.ToString());
+                var typeTicket = (TypeTicket)int.Parse(ccbTypeTicket.SelectedValue.ToString());
+                LoadData(txtSearch.Text, status, typeTicket, dtpDateIn.Value, dtpDateOut.Value);
+            }
+            catch (Exception ex)
+            {
+                LoadData(string.Empty, null, null, DateTime.Now, DateTime.Now.AddMonths(1));
+            }
+
+        }
+
+        private void dtpDateOut_ValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                var status = (Status)int.Parse(cbbStatus.SelectedValue.ToString());
+                var typeTicket = (TypeTicket)int.Parse(ccbTypeTicket.SelectedValue.ToString());
+                LoadData(txtSearch.Text, status, typeTicket, dtpDateIn.Value, dtpDateOut.Value);
+            }
+            catch (Exception ex)
+            {
+                LoadData(string.Empty, null, null, DateTime.Now, DateTime.Now.AddMonths(1));
             }
         }
     }

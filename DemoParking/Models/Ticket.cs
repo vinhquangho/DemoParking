@@ -22,13 +22,11 @@ namespace DemoParking.Models
     {
         [Display(Name = "Xe Đạp")]
         Ticket1 = 1, // xe dap
-        [Display(Name = "2 bánh")]
+        [Display(Name = "Xe gắn máy")]
         Ticket2 = 2, // 2 banh
-        [Display(Name = "4 bánh")]
+        [Display(Name = "Xe Ô tô")]
         Ticket3 = 3, // 4 cho
-        [Display(Name = "8 bánh")]
+        [Display(Name = "Xe bus")]
         Ticket4 = 4, // 8 cho
-        [Display(Name = "16 bánh")]
-        Ticket5 = 5, // 16 cho
     }
 }

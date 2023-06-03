@@ -16,7 +16,7 @@ namespace DemoParking.Services
         {
             _dbContext = dbContext;
         }
-        public List<ViewDto> GetAll(string text, Status? status, TypeTicket? typeTicket)
+        public List<ViewDto> GetAll(string text, Status? status, TypeTicket? typeTicket, DateTime dateIn, DateTime dateOut)
         {
             var query = _dbContext.InOuts.Include("Employee").AsQueryable();
             if (!string.IsNullOrEmpty(text))
@@ -26,6 +26,7 @@ namespace DemoParking.Services
             if (typeTicket.HasValue)
                 query = query.Where(f => f.TypeTicket == typeTicket.Value);
             var list = query.ToList();
+            list = list.Where(f => f.DateIn.Date >= dateIn.Date && f.DateIn.Date <= dateOut.Date).ToList();
             return list.Select(f => new ViewDto()
             {
                 Id = f.Id,

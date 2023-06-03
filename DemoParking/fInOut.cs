@@ -52,10 +52,9 @@ namespace DemoParking
             var result = new List<SelectDto>()
             {
                 new SelectDto(){ Id = 1, Name = "Xe Đạp" },
-                new SelectDto(){ Id = 2, Name = "2 bánh" },
-                new SelectDto(){ Id = 3, Name = "4 bánh" },
-                new SelectDto(){ Id = 4, Name = "8 bánh" },
-                new SelectDto(){ Id = 5, Name = "16 bánh" },
+                new SelectDto(){ Id = 2, Name = "Xe gắn máy" },
+                new SelectDto(){ Id = 3, Name = "Xe Ô tô" },
+                new SelectDto(){ Id = 4, Name = "Xe bus" },
             };
             ccbTypeTicket.DataSource = result;
             ccbTypeTicket.DisplayMember = "Name";

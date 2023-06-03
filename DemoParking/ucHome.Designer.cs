@@ -36,6 +36,8 @@ namespace DemoParking
             this.ccbTypeTicket = new System.Windows.Forms.ComboBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.cbbStatus = new System.Windows.Forms.ComboBox();
+            this.dtpDateIn = new System.Windows.Forms.DateTimePicker();
+            this.dtpDateOut = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgMain)).BeginInit();
             this.SuspendLayout();
@@ -72,7 +74,7 @@ namespace DemoParking
             // ccbTypeTicket
             // 
             this.ccbTypeTicket.FormattingEnabled = true;
-            this.ccbTypeTicket.Location = new System.Drawing.Point(611, 11);
+            this.ccbTypeTicket.Location = new System.Drawing.Point(779, 10);
             this.ccbTypeTicket.Name = "ccbTypeTicket";
             this.ccbTypeTicket.Size = new System.Drawing.Size(141, 21);
             this.ccbTypeTicket.TabIndex = 17;
@@ -82,23 +84,45 @@ namespace DemoParking
             // 
             this.txtSearch.Location = new System.Drawing.Point(130, 10);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(315, 20);
+            this.txtSearch.Size = new System.Drawing.Size(163, 20);
             this.txtSearch.TabIndex = 16;
             this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyDown);
             // 
             // cbbStatus
             // 
             this.cbbStatus.FormattingEnabled = true;
-            this.cbbStatus.Location = new System.Drawing.Point(451, 10);
+            this.cbbStatus.Location = new System.Drawing.Point(619, 10);
             this.cbbStatus.Name = "cbbStatus";
             this.cbbStatus.Size = new System.Drawing.Size(154, 21);
             this.cbbStatus.TabIndex = 18;
             this.cbbStatus.SelectedIndexChanged += new System.EventHandler(this.cbbStatus_SelectedIndexChanged);
             // 
+            // dtpDateIn
+            // 
+            this.dtpDateIn.CustomFormat = "dd/MM/yyyy";
+            this.dtpDateIn.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpDateIn.Location = new System.Drawing.Point(299, 10);
+            this.dtpDateIn.Name = "dtpDateIn";
+            this.dtpDateIn.Size = new System.Drawing.Size(154, 20);
+            this.dtpDateIn.TabIndex = 19;
+            this.dtpDateIn.ValueChanged += new System.EventHandler(this.dtpDateIn_ValueChanged);
+            // 
+            // dtpDateOut
+            // 
+            this.dtpDateOut.CustomFormat = "dd/MM/yyyy";
+            this.dtpDateOut.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpDateOut.Location = new System.Drawing.Point(459, 10);
+            this.dtpDateOut.Name = "dtpDateOut";
+            this.dtpDateOut.Size = new System.Drawing.Size(154, 20);
+            this.dtpDateOut.TabIndex = 20;
+            this.dtpDateOut.ValueChanged += new System.EventHandler(this.dtpDateOut_ValueChanged);
+            // 
             // ucHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.dtpDateOut);
+            this.Controls.Add(this.dtpDateIn);
             this.Controls.Add(this.cbbStatus);
             this.Controls.Add(this.btnCreate);
             this.Controls.Add(this.panel1);
@@ -121,5 +145,7 @@ namespace DemoParking
         private ComboBox ccbTypeTicket;
         private TextBox txtSearch;
         private ComboBox cbbStatus;
+        private DateTimePicker dtpDateIn;
+        private DateTimePicker dtpDateOut;
     }
 }
